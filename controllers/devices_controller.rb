@@ -6,8 +6,9 @@ class DevicesController < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/:id' do
-    id = params[:id]
-    Device.note(id).to_xml
+  get '/:name' do
+    content_type 'text/xml'
+    name = params[:name].to_s
+    Device.note(name).to_xml
   end
 end
